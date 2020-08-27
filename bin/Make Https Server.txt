@@ -1,0 +1,7 @@
+1/ We launch these openssl commands in the terminal in bin folder  to create a key and certificate of our https server 
+openssl genrsa 1024 > private.key
+openssl req -new -key private.key -out cert.csr
+openssl x509 -req -in cert.csr -signkey private.key -out certificate.pem
+
+2/ We go to www file in bin folder and create our secureServer in the port 3443 with private.key and certificate.pem as an options
+3/ we go to app.js and redirect every incoming request to ourt http server (htto://localhost:3000) goes to http server (https://localhost:3443) 
